@@ -1,4 +1,4 @@
-package com.example.Flight.Search.System;
+package com.example.flightsearchsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

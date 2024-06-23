@@ -1,29 +1,31 @@
-package com.example.Flight.Search.System.model;
+package com.example.flightsearchsystem.model;
+
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
+@Entity
 public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name="fligt_id")
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
     private int numberOfPassengers;
+    private Double total_cost;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,4 +53,10 @@ public class Reservation {
         this.numberOfPassengers = numberOfPassengers;
     }
 
+    public Double getTotal_cost() {
+        return total_cost;
+    }
+    public void setTotal_cost(Double total_cost) {
+        this.total_cost = total_cost;
+    }
 }

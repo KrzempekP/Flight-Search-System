@@ -1,7 +1,8 @@
-package com.example.Flight.Search.System.controller;
+package com.example.flightsearchsystem.controller;
 
-import com.example.Flight.Search.System.model.User;
-import com.example.Flight.Search.System.service.UserService;
+import com.example.flightsearchsystem.model.User;
+import com.example.flightsearchsystem.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
+    @Autowired
     private UserService userService;
 
     @GetMapping

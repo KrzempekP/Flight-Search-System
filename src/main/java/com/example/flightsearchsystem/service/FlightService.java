@@ -1,7 +1,8 @@
-package com.example.Flight.Search.System.service;
+package com.example.flightsearchsystem.service;
 
-import com.example.Flight.Search.System.model.Flight;
-import com.example.Flight.Search.System.repository.FlightRepository;
+import com.example.flightsearchsystem.model.Flight;
+import com.example.flightsearchsystem.repository.FlightRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class FlightService {
 
+    @Autowired
     private FlightRepository flightRepository;
 
     public List<Flight> getAllFlights() {

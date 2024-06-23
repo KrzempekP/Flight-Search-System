@@ -1,18 +1,21 @@
-package com.example.Flight.Search.System.model;
+package com.example.flightsearchsystem.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
+@Entity
 public class Flight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String departue;
+    private Long id;
+
+    private String departure;
     private String destination;
     private int passengersCapacity;
-    private int avaliableSeats;
+    private int availableSeats;
     private double cost;
 
     public long getId() {
@@ -23,12 +26,12 @@ public class Flight {
         this.id = id;
     }
 
-    public String getDepartue() {
-        return departue;
+    public String getDeparture() {
+        return departure;
     }
 
-    public void setDepartue(String departue) {
-        this.departue = departue;
+    public void setDeparture(String departure) {
+        this.departure = departure;
     }
 
     public String getDestination() {
@@ -47,12 +50,12 @@ public class Flight {
         this.passengersCapacity = passengersCapacity;
     }
 
-    public int getAvaliableSeats() {
-        return avaliableSeats;
+    public int getAvailableSeats() {
+        return availableSeats;
     }
 
-    public void setAvaliableSeats(int avaliableSeats) {
-        this.avaliableSeats = avaliableSeats;
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
     }
 
     public double getCost() {

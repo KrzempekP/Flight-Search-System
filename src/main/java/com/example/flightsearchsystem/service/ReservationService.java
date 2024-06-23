@@ -1,7 +1,8 @@
-package com.example.Flight.Search.System.service;
+package com.example.flightsearchsystem.service;
 
-import com.example.Flight.Search.System.model.Reservation;
-import com.example.Flight.Search.System.repository.ReservationRepository;
+import com.example.flightsearchsystem.model.Reservation;
+import com.example.flightsearchsystem.repository.ReservationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class ReservationService {
 
+    @Autowired
     private ReservationRepository reservationRepository;
 
     public List<Reservation> getReservationsByUserId(Long userId) {
