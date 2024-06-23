@@ -17,7 +17,7 @@ public class Reservation {
     @JoinColumn(name="fligt_id")
     private Flight flight;
 
-    private int numberOfSeats;
+    private int numberOfPassengers;
 
     public long getId() {
         return id;
@@ -43,12 +43,12 @@ public class Reservation {
         this.user = user;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public void setNumberOfPassengers(int numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
     }
 
 }
