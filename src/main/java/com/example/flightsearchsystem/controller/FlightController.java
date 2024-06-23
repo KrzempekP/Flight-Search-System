@@ -26,6 +26,11 @@ public class FlightController {
         return flightService.getFlightById(id);
     }
 
+    @GetMapping("/{departure}/{numberOfPassengers}")
+    public List<Flight> getFlightByDepartureAndNumberOfPassengers(@PathVariable String departure, @PathVariable Integer numberOfPassengers) {
+        return flightService.getFlightByDepartureAndNumberOfPassengers(departure, numberOfPassengers);
+    }
+
     @PostMapping
     public Flight addFlight(@RequestBody Flight flight) {
         return flightService.saveFlight(flight);

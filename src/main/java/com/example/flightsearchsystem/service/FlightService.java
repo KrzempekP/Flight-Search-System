@@ -24,4 +24,8 @@ public class FlightService {
     public Flight saveFlight(Flight flight) {
         return flightRepository.save(flight);
     }
+
+    public List<Flight> getFlightByDepartureAndNumberOfPassengers(String departure, int numberOfPassengers) {
+        return flightRepository.findByDestinationAndAvailableSeatsGreaterThan(departure, numberOfPassengers);
+    }
 }
