@@ -28,4 +28,19 @@ public class FlightService {
     public List<Flight> getFlightByDepartureAndNumberOfPassengers(String departure, int numberOfPassengers) {
         return flightRepository.findByDestinationAndAvailableSeatsGreaterThan(departure, numberOfPassengers);
     }
+
+    public void reduceAbailableSeats(Long flightId, int numberOfPassengers) {
+        Flight flight = flightRepository.findById(flightId).orElse(null);
+        if (flight != null) {
+            if (flight.getAvailableSeats() >= numberOfPassengers) {
+                flight.setAvailableSeats(flight.getAvailableSeats() - numberOfPassengers);
+                flightRepository.save(flight);
+            } else {
+                throw new IllegalArgumentException("Number of abailable seats exceeds number of passengers");
+            }
+        } else {
+            throw new IllegalArgumentException("Flight not found");
+        }
+
+    }
 }
