@@ -21,8 +21,11 @@ public class ReservationService {
         return reservationRepository.findByUserId(userId);
     }
 
+    public List<Reservation> getAllReservations() {return reservationRepository.findAll();}
+
     public Reservation saveReservation(Reservation reservation) {
         flightService.reduceAbailableSeats(reservation.getFlight().getId(), reservation.getNumberOfPassengers());
+        reservation.setTotal_cost(reservation.getFlight().getCost() * reservation.getNumberOfPassengers());
         return reservationRepository.save(reservation);
     }
 

@@ -14,9 +14,14 @@ public class ReservationController {
     @Autowired
     public ReservationService reservationService;
 
-    @GetMapping("users/{userId}")
+    @GetMapping("/{userId}")
     public List<Reservation> getReservations(@PathVariable Long userId) {
         return reservationService.getReservationsByUserId(userId);
+    }
+
+    @GetMapping
+    public List<Reservation> getAllReservations() {
+        return reservationService.getAllReservations();
     }
 
     @PostMapping
