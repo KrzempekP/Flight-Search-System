@@ -3,7 +3,6 @@ package com.example.flightsearchsystem.controller;
 
 import com.example.flightsearchsystem.model.Flight;
 import com.example.flightsearchsystem.service.FlightService;
-import jakarta.persistence.Access;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,7 @@ public class FlightController {
 
     @GetMapping("/{departure}/{numberOfPassengers}")
     public List<Flight> getFlightByDepartureAndNumberOfPassengers(@PathVariable String departure, @PathVariable Integer numberOfPassengers) {
-        return flightService.getFlightByDepartureAndNumberOfPassengers(departure, numberOfPassengers);
+        return flightService.getFlightByDepartureAndAvailableSeats(departure, numberOfPassengers);
     }
 
     @PostMapping

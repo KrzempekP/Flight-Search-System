@@ -1,7 +1,6 @@
 package com.example.flightsearchsystem.service;
 
 import com.example.flightsearchsystem.model.Reservation;
-import com.example.flightsearchsystem.repository.FlightRepository;
 import com.example.flightsearchsystem.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class ReservationService {
     public List<Reservation> getAllReservations() {return reservationRepository.findAll();}
 
     public Reservation saveReservation(Reservation reservation) {
-        flightService.reduceAbailableSeats(reservation.getFlight().getId(), reservation.getNumberOfPassengers());
+        flightService.reduceAvailableSeats(reservation.getFlight().getId(), reservation.getNumberOfPassengers());
         reservation.setTotal_cost(reservation.getFlight().getCost() * reservation.getNumberOfPassengers());
         return reservationRepository.save(reservation);
     }

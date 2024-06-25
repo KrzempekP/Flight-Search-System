@@ -22,14 +22,19 @@ public class FlightService {
     }
 
     public Flight saveFlight(Flight flight) {
-        return flightRepository.save(flight);
+        if(flight.getAvailableSeats() <= flight.getPassengersCapacity()){
+            return flightRepository.save(flight);
+        }
+        else{
+            throw new IllegalArgumentException("More available seats then maximum capacity");
+        }
     }
 
-    public List<Flight> getFlightByDepartureAndNumberOfPassengers(String departure, int numberOfPassengers) {
-        return flightRepository.findByDestinationAndAvailableSeatsGreaterThan(departure, numberOfPassengers);
+    public List<Flight> getFlightByDepartureAndAvailableSeats(String departure, int numberOfPassengers) {
+        return flightRepository.findByDepartureAndAndAvailableSeatsGreaterThanEqual(departure, numberOfPassengers);
     }
 
-    public void reduceAbailableSeats(Long flightId, int numberOfPassengers) {
+    public void reduceAvailableSeats(Long flightId, int numberOfPassengers) {
         Flight flight = flightRepository.findById(flightId).orElse(null);
         if (flight != null) {
             if (flight.getAvailableSeats() >= numberOfPassengers) {

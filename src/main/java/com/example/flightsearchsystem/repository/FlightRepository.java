@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
-
-    List<Flight> findByDestinationAndAvailableSeatsGreaterThan(String departure, int availableSeats);
+    List<Flight> findByDepartureAndAndAvailableSeatsGreaterThanEqual(String departure, int availableSeats);
 }
